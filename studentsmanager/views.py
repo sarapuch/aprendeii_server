@@ -1626,29 +1626,27 @@ def get_next_telegram(request, **kwargs):
         return HttpResponse(data_json)
 
     #COMPROBACION DE NECESIDAD DE REPASO
-    revise_keyword = 'notneeded'
-    '''NUEVO'''
-    if student.username == 'mcaeiro' or student.username=='saraalumna':
-        if not student.tracking.filter(time__year=today.year, time__month=today.month, time__day=today.day, action='Finish review').exists():
-            url = f"http://193.146.210.19:8000/ebisu/check_values/{student.username}/"
-            response = requests.get(url)
-            data = response.json()
-            revise_keyword = 'notneeded'
-            try:
-                
-                revise_keyword = data['keyword']
-                if student.current_keyword != revise_keyword:
-                    #SI SE NECESITA REPASAR, CAMBIAMOS EL VALOR DEL ESTADO DE KEYWORD PARA QUE NOS RECOMIENDE EL MICROCONTENIDO ADICIONAL
-                    keyword_selected = student.keywords_states.filter(keyword=revise_keyword).get()
-                    keyword_selected.score = 4
-                    keyword_selected.typeIIx3 = 3
-                    keyword_selected.typeIIx2 = 0
-                    keyword_selected.save()
-                    student.current_keyword=revise_keyword
-                    student.save()
+    revise_keyword = 'notneeded'   
+    if not student.tracking.filter(time__year=today.year, time__month=today.month, time__day=today.day, action='Finish review').exists():
+        url = f"http://193.146.210.19:8000/ebisu/check_values/{student.username}/"
+        response = requests.get(url)
+        data = response.json()
+        revise_keyword = 'notneeded'
+        try:
             
-            except:
-                pass 
+            revise_keyword = data['keyword']
+            if student.current_keyword != revise_keyword:
+                #SI SE NECESITA REPASAR, CAMBIAMOS EL VALOR DEL ESTADO DE KEYWORD PARA QUE NOS RECOMIENDE EL MICROCONTENIDO ADICIONAL
+                keyword_selected = student.keywords_states.filter(keyword=revise_keyword).get()
+                keyword_selected.score = 4
+                keyword_selected.typeIIx3 = 3
+                keyword_selected.typeIIx2 = 0
+                keyword_selected.save()
+                student.current_keyword=revise_keyword
+                student.save()
+        
+        except:
+            pass 
 
     keywords = []
     
