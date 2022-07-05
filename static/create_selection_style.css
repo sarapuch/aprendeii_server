@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
+  }
+  
+  html {
+    font-size: 10px;
+  }
+  
+  body {
+    background: #ffffff;
+    min-height: 100vh;
+  }
+
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #264653;
+  }
+  h1 a i {
+      color: #264653;
+  }
+  
+  p {
+    font-size: 1.6rem;
+  }
+  
+  .top-content {
+    font-size: 4rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    color: #23404B;
+  }
+  
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 90vw;
+  }
+
+  .single-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2.5rem;
+  }
+  
+  .lower_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2.5rem;
+    padding: 2.5rem;
+  }
+  
+  .grid-item {
+    height: 40rem;
+    width: 300px;
+    padding: 2rem 3rem;
+    color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    text-align: justify;
+    box-sizing: border-box;
+  }
+  
+  .single_media {
+    transition: 0.4s ease-in-out;
+    background: linear-gradient(#287271f2, #264653f2),
+      url("/static/images/M.png") no-repeat center center/cover;
+      box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                    2px 2px 6px #23404b;
+  }
+  
+  .single-quest {
+    transition: 0.4s ease-in-out;
+    background: linear-gradient(#287271f2, #264653f2),
+      url("/static/images/Q.png") no-repeat center center/cover;
+      box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                    2px 2px 6px #23404b;
+  }
+  
+  .pre_quest {
+    transition: 0.4s ease-in-out;
+    background: linear-gradient(#287271f2, #264653f2),
+      url("/static/images/QM.png") no-repeat center center/cover;
+      box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                    2px 2px 6px #23404b;
+  }
+  .post_quest {
+    transition: 0.4s ease-in-out;
+    background: linear-gradient(#287271f2, #264653f2),
+      url("/static/images/MQ.png") no-repeat center center/cover;
+      box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                    2px 2px 6px #23404b;
+  }
+  
+  .pre_post_quest {
+    transition: 0.4s ease-in-out;
+    background: linear-gradient(#287271f2, #264653f2),
+      url("/static/images/QMQ.png") no-repeat center center/cover;
+      box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                    2px 2px 6px #23404b;
+  }
+  
+  .single_media:hover,
+  .single-quest:hover,
+  .pre_quest:hover,
+  .post_quest:hover,
+  .pre_post_quest:hover {
+    box-shadow: -1px -1px 3px #F4A261,
+                 2px 2px 6px #EE8959,
+                 inset -1px -1px 5px #F4A261,
+                 inset 2px 2px 5px #EE8959;
+  }
+  
+  .grid-item i{
+    font-size: 3rem;
+  }
+  
+  .grid-item h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin: 2rem 0;
+    color: #f4f4f4;
+  }
+  
+  .btn {
+    margin-top: 1rem;
+    padding: 1rem 2.5rem;
+    background: #2a9d8f;
+    color: #ffffff;
+    display: inline-block;
+    text-align: center;
+    border-radius: 25px;
+    font-size: 1.6rem;
+    transition: 0.4s ease-in-out;
+    box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                  2px 2px 6px #23404b;
+  }
+  
+  .btn:hover {
+    background: #E9C46A;
+    color: #1A2F37;
+    cursor: pointer;
+    box-shadow: -1px -1px 3px #F4A261,
+                 2px 2px 6px #EE8959,
+                 inset -1px -1px 5px #F4A261,
+                 inset 2px 2px 5px #EE8959;
+  }
+  
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .expert {
+      margin-bottom: 5rem;
+    }
+  }
+  
+  @media (max-width: 425px) {
+    .top-content {
+      font-size: 3rem;
+      height: 20vh;
+    }
+    .grid-item {
+      padding: 2rem;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .top-content {
+      font-size: 2.5rem;
+    }
+    .grid-item {
+      width: 250px;
+    }
+  }

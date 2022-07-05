@@ -1,0 +1,223 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+h1 {
+    color: #fff;
+    font-weight: 500;
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+h2 {
+    color: #5B5454;
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.bottom {
+    background-image: url("images/background_base.png");
+    background-color: #cccccc;
+    height: 700px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:auto;
+}
+
+
+
+.container {
+    background-color: #ffffff;
+    height: 80%;
+    margin: 3%;
+}
+
+.table-container {
+    background-color: #ffffff;
+    height: 100%;
+    margin: 3%;
+    overflow: scroll;
+}
+
+.column {
+    float: left;
+    width: 46%;
+    padding: 10px;
+    margin: 2%;
+    height: 700px;
+}
+
+.left {
+    background-color: #f3f0f1;
+}
+
+.right {
+    background-color: #f3f0f1;
+}
+
+.image-container {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    height: 80%;
+    width: 100%;
+}
+
+.image-container img {
+    vertical-align: middle;
+    max-width: 50%;
+    max-height: 50%;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+.options-container {
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    width: 50%;
+    height: 3em;
+    background: #f3f0f1;
+    position: relative;
+    margin-bottom: 25px;
+    border-radius: 32px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    line-height: 3em;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+    color: #6f6cde;
+    transform: translatex(50%);
+}
+
+.button:hover {
+    opacity: 0.5;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+    color: #79e3b6;
+}
+
+.button:active {
+    opacity: 1;
+    box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5), inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+    color: #6BE579;
+}
+
+.home {
+    transform: translatex(100%);
+    width: 25%;
+}
+
+.create {
+    transform: translatex(100%);
+    width: 25%;
+}
+
+.po {
+    width: 30%;
+}
+
+.po .fa{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin: 0 4px;
+    color: #FFFFFF;
+    font-size: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                2px 2px 6px rgba(0,0,0,0.8);
+}
+
+#view, #create{
+    background:rgb(149, 207, 90);
+}
+
+#edit{
+    background:rgb(219, 111, 11);
+}
+
+#delete{
+    background:rgb(195, 31, 26);
+}
+
+#home{
+    background:rgb(23, 151, 224);
+}
+
+#myTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#myTable td, #myTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#myTable tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#myTable tr:hover {
+    background-color: #ddd;
+}
+
+#myTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #6f6cde;
+    color: white;
+}
+
+#myTable tbody {
+    height: 200px;
+    overflow: scroll;
+}
+
+.playlist_container {
+    background-color: #f3f0f1;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+  
+.draggable {
+    padding: 1rem;
+    background-color: #f3f0f1;
+    border: 1px solid;
+    border-radius: 32px;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    font-weight: bold;
+    cursor: move;
+    color: rgb(70, 66, 66);
+}
+
+.draggable.dragging {
+    opacity: .5;
+}

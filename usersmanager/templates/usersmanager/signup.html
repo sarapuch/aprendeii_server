@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<style>
+</style>
+<html>
+	<head>
+		<title>Sign up</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'demo.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'sky-forms.css' %}">
+            <link rel="icon" type="image/png" href="{% static 'images/icons/home.ico' %}"/>
+
+
+
+    </head>
+	<body class="bg-study">
+
+		<div class="body body-s">
+
+			<form method="post" class="sky-form">
+                {% csrf_token %}
+				<header>Sign up<a id="id_back_button" class="button" href="{% url 'login' %}" >Back</a></header>
+				<fieldset>
+                    {{ form.errors }}
+					<section>
+						<label class="input">
+                            {{ form.username }}
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
+					</section>
+
+					<section>
+						<label class="input">
+                            {{ form.email }}
+							<b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
+						</label>
+					</section>
+
+					<section>
+						<label class="input" >
+							{{ form.password1 }}
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
+					</section>
+
+					<section>
+						<label class="input">
+							{{ form.password2 }}
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
+					</section>
+				</fieldset>
+
+				<fieldset>
+					<div class="row">
+						<section class="col col-6">
+							<label class="input">
+                                {{ form.first_name }}
+							</label>
+						</section>
+						<section class="col col-6">
+							<label class="input">
+								{{ form.last_name }}
+							</label>
+						</section>
+					</div>
+				</fieldset>
+				<footer>
+					<button type="submit" class="button" style="background-color: green">Sign up</button>
+				</footer>
+			</form>
+
+		</div>
+
+
+	</body>
+</html>
+

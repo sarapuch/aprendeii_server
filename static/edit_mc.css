@@ -1,0 +1,44 @@
+.box {
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    text-align: center;
+ }
+
+.option-font{
+    font-palette: light;
+    font-size: 15px;
+}
+#full-container {
+    margin-left: 450px;
+    background-color: grey;
+}
+
+.button {
+    font: bold 11px Arial;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+    cursor: pointer;
+}
+ .blue-box {
+    background-color: rgba(92,114,250,0.81);
+    color: #fff;
+    margin: 20px 1200px 20px 10px ;
+    padding: 0.6em;
+    cursor: pointer;
+     text-align: center;
+}
+.delete-box {
+    background-color: red;
+    color: #fff;
+    margin: 20px 1200px 20px 10px ;
+    padding: 0.6em;
+    cursor: pointer;
+     text-align: center;
+}

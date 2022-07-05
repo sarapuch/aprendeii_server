@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Microcontents</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'score_style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/icons/book.png' %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <h1>El curso ha sido reiniciado</h1>
+    <h1 class="top-content"><a id="home_button" class="po home" title="Go back to my courses" href="{% url 'studentsmanager:my_courses' %}"><i id="home" class="fa fa-reply" aria-hidden="true"></i></a></h1>
+</body>    

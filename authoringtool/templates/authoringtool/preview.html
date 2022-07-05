@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Microcontent list</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'try_microcontent.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/icons/book.png' %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>{{ microcontent.name }}</h1>
+    <h1 class="top-content"><a id="home_button" class="po home" title="Go back to microcontent list" onClick="javascript:history.go(-1);" style="cursor:pointer;"><i id="home" class="fa fa-reply" aria-hidden="true"></i></a></h1>
+    
+         
+        <div class="container">
+            {% if pre_questions %}
+                <h2>Previous questionnaire</h2>
+                {% for pre_q in pre_questions%}
+                    <div class="radio-wrapper">
+                        <div class="title">{{ pre_q.question }}</div>
+                        <div class="radio-box">
+                            <input type="radio" name="prechoice_{{ forloop.counter }}" value="{{ pre_q.first_choice }}" id="pre_option_{{ forloop.counter }}_1" checked>
+                            <input type="radio" name="prechoice_{{ forloop.counter }}" value="{{ pre_q.second_choice }}" id="pre_option_{{ forloop.counter }}_2">
+                            <input type="radio" name="prechoice_{{ forloop.counter }}" value="{{ pre_q.third_choice }}" id="pre_option_{{ forloop.counter }}_3">
+                            <label for="pre_option_{{ forloop.counter }}_1" class="option-1">
+                                <div class="dot"></div>
+                                <div class="text">{{ pre_q.first_choice }}</div>
+                            </label>
+                            <label for="pre_option_{{ forloop.counter }}_2" class="option-2">
+                                <div class="dot"></div>
+                                <div class="text">{{ pre_q.second_choice }}</div>
+                            </label>
+                            <label for="pre_option_{{ forloop.counter }}_3" class="option-3">
+                                <div class="dot"></div>
+                                <div class="text">{{ pre_q.third_choice }}</div>
+                            </label>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {% if media %}
+                <h2>Multimedia</h2>
+                <div class="media_box">
+                    {% if media.type == "video" %}
+                        {% if media.upload_form == "from_existing_file" %}
+                            <video width="730" height="470" src="{{ dir }}{{ media.mediaFile }}" controls></video>
+                        {% elif media.upload_form == "link_from_youtube" %}
+                            <iframe width="730" height="470" src="{{ media.url }}"></iframe>
+                        {% endif %}
+                    {% endif %}
+
+                    {% if media.type == "image" %}
+                        <img width="730" height="470" src="{{ dir }}{{ media.mediaFile }}"></img>
+                    {% endif %}
+
+                    {% if media.type == "audio" %}
+                        <audio id="Player" controls>
+                            <source src="{{ dir }}{{ media.mediaFile }}"/>
+                        </audio>
+                    {% endif %}
+
+                    {% if media.type == "text" %}
+                        <p> {{ media.text }}
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            {% if post_questions %}
+                <h2>Questionnaire</h2>
+                {% for post_q in post_questions%}
+                    <div class="radio-wrapper">
+                        <div class="title">{{ post_q.question }}</div>
+                        <div class="radio-box">
+                            <input type="radio" name="postchoice_{{ forloop.counter }}" value="{{ post_q.first_choice }}" id="post_option_{{ forloop.counter }}_1" {% if forloop.counter == post_q.getcorrectoption %}checked {% endif %}>
+                            <input type="radio" name="postchoice_{{ forloop.counter }}" value="{{ post_q.second_choice }}" id="post_option_{{ forloop.counter }}_2" {% if forloop.counter == post_q.getcorrectoption %}checked {% endif %}>
+                            <input type="radio" name="postchoice_{{ forloop.counter }}" value="{{ post_q.third_choice }}" id="post_option_{{ forloop.counter }}_3" {% if forloop.counter == post_q.getcorrectoption %}checked {% endif %}>
+                            <label for="post_option_{{ forloop.counter }}_1" class="option-1">
+                                <div class="dot"></div>
+                                <div class="text">{{ post_q.first_choice }}</div>
+                            </label>
+                            <label for="post_option_{{ forloop.counter }}_2" class="option-2">
+                                <div class="dot"></div>
+                                <div class="text">{{ post_q.second_choice }}</div>
+                            </label>
+                            <label for="post_option_{{ forloop.counter }}_3" class="option-3">
+                                <div class="dot"></div>
+                                <div class="text">{{ post_q.third_choice }}</div>
+                            </label>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+</body>

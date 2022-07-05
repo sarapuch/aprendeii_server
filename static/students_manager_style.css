@@ -1,0 +1,587 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
+    /*box-sizing: border-box;*/
+  }
+  
+  html {
+    font-size: 10px;
+  }
+  
+  body {
+    background: #ffffff;
+    min-height: 100vh;
+  }
+  
+  p {
+    font-size: 1.6rem;
+  }
+
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #ffffff;
+  }
+  h1 a i {
+    color: #264653;
+  }
+  
+  .top-content {
+    font-size: 4rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    color: #23404B;
+  }
+  
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 90vw;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2.5rem;
+  }
+
+  .student-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2.5rem;
+  }
+  
+  .lower_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2.5rem;
+    padding: 2.5rem;
+  }
+  
+  .grid-item {
+    height: 40rem;
+    width: 300px;
+    padding: 2rem 3rem;
+    color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    text-align: justify;
+    box-sizing: border-box;
+  }
+  
+  .create_mc {
+    transition: 0.4s ease-in-out;
+    background: linear-gradient(#287271f2, #264653f2),
+      url("/static/images/create_mc.jpg") no-repeat center center/cover;
+      box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                    2px 2px 6px #23404b;
+  }
+  
+  .search_mc {
+    transition: 0.4s ease-in-out;
+    background: linear-gradient(#287271f2, #264653f2),
+      url("/static/images/search_mc.jpg") no-repeat center center/cover;
+      box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                    2px 2px 6px #23404b;
+  }
+  
+  .create_pl {
+    transition: 0.4s ease-in-out;
+    background: linear-gradient(#287271f2, #264653f2),
+      url("/static/images/create_pl.jpg") no-repeat center center/cover;
+      box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                    2px 2px 6px #23404b;
+  }
+  .search_pl {
+    transition: 0.4s ease-in-out;
+    background: linear-gradient(#287271f2, #264653f2),
+      url("/static/images/search_pl.jpg") no-repeat center center/cover;
+      box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                    2px 2px 6px #23404b;
+  }
+  
+  .user_data {
+    transition: 0.4s ease-in-out;
+    background: linear-gradient(#287271f2, #264653f2),
+      url("/static/images/user_data.jpg") no-repeat center center/cover;
+      box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                    2px 2px 6px #23404b;
+  }
+  
+  .change_password {
+    transition: 0.4s ease-in-out;
+    background: linear-gradient(#287271f2, #264653f2),
+      url("/static/images/change_password.jpg") no-repeat center center/cover;
+      box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                    2px 2px 6px #23404b;
+  }
+  
+  .log_out {
+    transition: 0.4s ease-in-out;
+    background: linear-gradient(#287271f2, #264653f2),
+      url("/static/images/log_out.jpg") no-repeat center center/cover;
+      box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                    2px 2px 6px #23404b;
+  }
+  
+  .create_mc:hover,
+  .search_mc:hover,
+  .create_pl:hover,
+  .search_pl:hover,
+  .user_data:hover,
+  .change_password:hover,
+  .log_out:hover {
+    box-shadow: -1px -1px 3px #F4A261,
+                 2px 2px 6px #EE8959,
+                 inset -1px -1px 5px #F4A261,
+                 inset 2px 2px 5px #EE8959;
+  }
+  
+  .grid-item i{
+    font-size: 3rem;
+  }
+  
+  .grid-item h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin: 2rem 0;
+  }
+  
+  .btn {
+    margin-top: 1rem;
+    padding: 1rem 2.5rem;
+    background: #2a9d8f;
+    color: #ffffff;
+    display: inline-block;
+    text-align: center;
+    border-radius: 25px;
+    font-size: 1.6rem;
+    transition: 0.4s ease-in-out;
+    box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                  2px 2px 6px #23404b;
+  }
+  
+  .btn:hover {
+    background: #E9C46A;
+    color: #1A2F37;
+    cursor: pointer;
+    box-shadow: -1px -1px 3px #F4A261,
+                 2px 2px 6px #EE8959,
+                 inset -1px -1px 5px #F4A261,
+                 inset 2px 2px 5px #EE8959;
+  }
+  
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .expert {
+      margin-bottom: 5rem;
+    }
+  }
+  
+  @media (max-width: 425px) {
+    .top-content {
+      font-size: 3rem;
+      height: 20vh;
+    }
+    .grid-item {
+      padding: 2rem;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .top-content {
+      font-size: 2.5rem;
+    }
+    .grid-item {
+      width: 250px;
+    }
+  }
+  
+
+  /********************************* Rexistro ***********************************/
+
+:root{
+  --form-height:600px;
+  --form-width: 900px;
+  /*  Sea Green */
+  --left-color: #287271;
+  /*  Light Blue  */
+  --right-color: #4ED0C1;
+}
+
+.log_in_container_wrapper{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.container{
+  width: var(--form-width);
+  height: var(--form-height);
+  position: relative;
+  margin: auto;
+  box-shadow: 2px 10px 40px rgba(22,20,19,0.4);
+  border-radius: 10px;
+  margin-top: 50px;
+}
+/*
+----------------------
+      Overlay
+----------------------
+*/
+.overlay{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 100;
+  background-image: linear-gradient(to right, var(--left-color), var(--right-color));
+  border-radius: 10px;
+  color: white;
+  clip: rect(0, 385px, var(--form-height), 0);
+}
+
+.open-sign-up{
+    animation: slideleft 1s linear forwards;
+}
+
+.open-sign-in{
+    animation: slideright 1s linear forwards;
+}
+
+.overlay .sign-in, .overlay .sign-up{
+  /*  Width is 385px - padding  */
+  --padding: 50px;
+  width: calc(385px - var(--padding) * 2);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px var(--padding);
+  text-align: center;
+}
+
+.overlay .sign-in{
+  float: left;
+}
+
+.overlay-text-left-animation{
+    animation: text-slide-in-left 1s linear;
+}
+.overlay-text-left-animation-out{
+    animation: text-slide-out-left 1s linear;
+}
+
+.overlay .sign-up{
+  float:right;
+}
+
+.overlay-text-right-animation{
+    animation: text-slide-in-right 1s linear;
+}
+
+.overlay-text-right-animation-out{
+    animation: text-slide-out-right 1s linear;
+}
+
+
+.overlay h1{
+  margin: 0px 5px;
+  font-size: 2.1rem;
+}
+
+.overlay p{
+  margin: 20px 0px 30px;
+  font-weight: 200;
+}
+/*
+------------------------
+      Buttons
+------------------------
+*/
+.switch-button, .control-button{
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 140px;
+  height: 40px;
+  font-size: 14px;
+  text-transform: uppercase;
+  background: none;
+  border-radius: 20px;
+  color: white;
+}
+
+.switch-button{
+  border: 2px solid;
+}
+
+.control-button{
+  border: none;
+  margin-top: 15px;
+  transition: 0.4s ease-in-out;
+  box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+              2px 2px 6px #23404b;
+}
+
+.switch-button:focus, .control-button:focus{
+  outline:none;
+}cont
+
+.control-button.up:hover{
+  box-shadow: -1px -1px 3px #287271,
+               2px 2px 6px #264653,
+               inset -1px -1px 10px #287271,
+               inset 2px 2px 10px #264653;
+}
+
+.control-button.in:hover{
+  box-shadow: -1px -1px 3px #40B5B3,
+               2px 2px 6px #33C1B1,
+               inset -1px -1px 10px #40B5B3,
+               inset 2px 2px 10px #33C1B1;
+}
+
+.control-button.up{
+  background-color: var(--left-color);
+}
+
+.control-button.in{
+  background-color: var(--right-color);
+}
+
+/*
+--------------------------
+      Forms
+--------------------------
+*/
+.form{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 10px;
+}
+
+.form .sign-in, .form .sign-up{
+  --padding: 50px;
+  position:absolute;
+    /*  Width is 100% - 385px - padding  */
+  width: calc(var(--form-width) - 385px - var(--padding) * 2);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px var(--padding);
+  text-align: center;
+}
+
+/* Sign in is initially not displayed */
+.form .sign-in{
+  display: none;
+}
+
+.form .sign-in{
+  left:0;
+}
+
+.form .sign-up{
+  right: 0;
+}
+
+.form-right-slide-in{
+  animation: form-slide-in-right 1s;
+}
+
+.form-right-slide-out{
+  animation: form-slide-out-right 1s;
+}
+
+.form-left-slide-in{
+  animation: form-slide-in-left 1s;
+}
+
+.form-left-slide-out{
+  animation: form-slide-out-left 1s;
+}
+
+.form .sign-in h1{
+  color: var(--right-color);
+  margin: 0;
+}
+
+.form .sign-up h1{
+  color: var(--left-color);
+  margin: 0;
+}
+
+.small{
+  font-size: 13px;
+  color: grey;
+  font-weight: 200;
+  margin: 5px;
+}
+
+#sign-in-form input, #sign-up-form input{
+  margin: 12px;
+  font-size: 14px;
+  padding: 15px;
+  width: 260px;
+  font-weight: 300;
+  border: none;
+  background-color: #e4e4e494;
+  font-family: 'Helvetica Neue', sans-serif;
+  letter-spacing: 1.5px;
+  padding-left: 20px;
+}
+
+#sign-in-form input::placeholder{
+  letter-spacing: 1px;
+}
+
+.forgot-password{
+  font-size: 12px;
+  display: inline-block;
+  border-bottom: 2px solid #efebeb;
+  padding-bottom: 3px;
+}
+
+p a {
+  color: #264653;
+}
+
+.forgot-password:hover{
+  cursor: pointer;
+}
+
+/*
+---------------------------
+    Animation
+---------------------------
+*/
+@keyframes slideright{
+  0%{
+    clip: rect(0, 385px, var(--form-height), 0);
+  }
+  30%{
+        clip: rect(0, 480px, var(--form-height), 0);
+  }
+  /*  we want the width to be slightly larger here  */
+  50%{
+     clip: rect(0px, calc(var(--form-width) / 2 + 480px / 2), var(--form-height), calc(var(--form-width) / 2 - 480px / 2));
+  }
+  80%{
+         clip: rect(0px, var(--form-width), var(--form-height), calc(var(--form-width) - 480px));
+  }
+  100%{
+     clip: rect(0px, var(--form-width), var(--form-height), calc(var(--form-width) - 385px));
+  }
+}
+
+@keyframes slideleft{
+  100%{
+    clip: rect(0, 385px, var(--form-height), 0);
+  }
+  70%{
+        clip: rect(0, 480px, var(--form-height), 0);
+  }
+  /*  we want the width to be slightly larger here  */
+  50%{
+     clip: rect(0px, calc(var(--form-width) / 2 + 480px / 2), var(--form-height), calc(var(--form-width) / 2 - 480px / 2));
+  }
+  30%{
+         clip: rect(0px, var(--form-width), var(--form-height), calc(var(--form-width) - 480px));
+  }
+  0%{
+     clip: rect(0px, var(--form-width), var(--form-height), calc(var(--form-width) - 385px));
+  }
+}
+
+@keyframes text-slide-in-left{
+  0% {
+    padding-left: 20px;
+  }
+  100% {
+    padding-left: 50px;
+  }
+}
+
+@keyframes text-slide-in-right{
+  0% {
+    padding-right: 20px;
+  }
+  100% {
+    padding-right: 50px;
+  }
+}
+
+@keyframes text-slide-out-left{
+  0% {
+    padding-left: 50px;
+  }
+  100% {
+    padding-left: 20px;
+  }
+}
+
+@keyframes text-slide-out-right{
+  0% {
+    padding-right: 50px;
+  }
+  100% {
+    padding-right: 20px;
+  }
+}
+
+@keyframes form-slide-in-right{
+  0%{
+    padding-right: 100px;
+  }
+  100%{
+    padding-right: 50px;
+  }
+}
+
+@keyframes form-slide-in-left{
+  0%{
+    padding-left: 100px;
+  }
+  100%{
+    padding-left: 50px;
+  }
+}
+
+@keyframes form-slide-out-right{
+  0%{
+    padding-right: 50px;
+  }
+  100%{
+    padding-right: 80px;
+  }
+}
+
+@keyframes form-slide-out-left{
+  0%{
+    padding-left: 50px;
+  }
+  100%{
+    padding-left: 80px;
+  }
+}
+

@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Playlist edition</title>
+    <script src="{% static 'playlist.js' %}" defer></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'playlist.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/icons/book.png' %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body class="bottom">
+<form name="myform" action="{% url 'authoringtool:edit_playlist' playlist.id %}" method="post" onsubmit="applyOrder()" enctype="multipart/form-data">
+{% csrf_token %}
+
+  <header>
+    <h1 class="top-content"><a id="home_button" class="po home" title="Go back to courses list" href="{% url 'authoringtool:playlist_search' %}"><i id="home" class="fa fa-reply" aria-hidden="true"></i></a></h1>
+  </header>
+
+  <div class="wrapper">
+      <div class="input-data">
+        <input type="text" name="title" id="title" value="{{ playlist.name }}" required>
+        <div class="underline"></div>
+        <label>Name</label>
+      </div>
+  </div>
+
+  <div class="playlist_container send" id="send">
+    <h2>Selected</h2>
+    {% for kw in microcontents_in %}
+      <p class="draggable" draggable="true">
+        {{ kw }}
+        <input type="hidden" class="meta_id" name="" value="{{ kw }}">
+      </p>
+    {% endfor %}
+  </div>
+
+  <input type="hidden" id="playlist_size" name="playlist_size" value="0">
+
+  <div class="playlist_container all" id="all">
+    <h2>All</h2>
+    {% for kw in microcontents_out %}
+      <p class="draggable" draggable="true">
+        {{ kw }}
+        <input type="hidden" class="meta_id" name="" value="{{ kw }}">
+      </p>
+    {% endfor %}
+  </div>
+  <br><br>
+    <input class="button" type="submit" value="Save"> 
+  </form>
+</body>
+</html>

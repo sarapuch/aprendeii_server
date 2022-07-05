@@ -1,0 +1,10 @@
+{% autoescape off %}
+Hi administrator,
+Please click on the link to confirm the registration of the new user:
+        Username: {{ user.username }}
+        First name: {{ user.first_name }}
+        Last name: {{ user.last_name }}
+        Email: {{ user.email }}
+
+You can activate the account by clicking on this link: http://{{ domain }}{% url 'studentsmanager:activate' uidb64=uid token=token %}
+{% endautoescape %}

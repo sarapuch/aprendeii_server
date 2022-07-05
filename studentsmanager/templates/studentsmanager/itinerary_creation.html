@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Itinerary edition</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'itinerary.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/icons/book.png' %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body class="bottom" onbeforeprint="isChecked()">
+<form name="myform" action="{% url 'studentsmanager:choose_itinerary' playlist.id %}" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+
+  <header>
+    <h1 class="top-content"><a id="home_button" class="po home" title="Go back to courses list" href="{% url 'studentsmanager:courses_list' %}"><i id="home" class="fa fa-reply" aria-hidden="true"></i></a></h1>
+  </header>
+
+  <h2>{{ playlist.name}} </h2>
+  <input type="hidden" id="microcontents_in" name="microcontents_in" value="{{ microcontents_in }}">
+  <fieldset>
+    <legend>Select your itinerary</legend>
+    {% for kw in microcontents %}
+      <label class="container">
+        <input type="checkbox" name="itinerary" value="{{kw}}">{{ kw }}</option><br>
+        <span class="checkmark"></span>
+      </label>
+    {% endfor %}
+  <br><br>
+  </fieldset>
+  <br><br>
+  <input class="button" type="submit" value="Save"> 
+  </form>
+</body>
+</html>
+
+<script>
+function isChecked() {
+  var checkboxes = document.getElementsByName('itinerary');
+  var keywords_in = document.getElementById("microcontents_in").value;
+  for (var i = 1; i <= checkboxes.length; i++) {
+    for (var j = 1; j <=keywords_in.length; j++) {
+      if (checkboxes[i].value == keywords_in[j]) {
+        checkboxes[i].checked = true;
+      }
+      checkboxes[i].setAttribute('value', 'order_' + i);
+    }
+  }
+}
+
+</script>

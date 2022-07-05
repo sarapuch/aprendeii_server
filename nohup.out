@@ -1,0 +1,147 @@
+Scheduler started...
+Run time of job "clean_accounts (trigger: interval[0:00:30], next run at: 2022-05-13 09:51:00 UTC)" was missed by 0:00:15.490746
+Run time of job "clean_accounts (trigger: interval[0:00:30], next run at: 2022-05-13 12:26:33 UTC)" was missed by 0:00:13.004636
+Run time of job "clean_accounts (trigger: interval[0:00:30], next run at: 2022-05-13 09:51:08 UTC)" was missed by 0:00:08.075532
+Run time of job "clean_accounts (trigger: interval[0:00:30], next run at: 2022-05-13 09:51:09 UTC)" was missed by 0:00:07.026210
+DB error executing 'update_job' (database is locked). Retrying with a new DB connection...
+Performing system checks...
+
+Run time of job "clean_accounts (trigger: interval[0:00:30], next run at: 2022-05-13 12:26:41 UTC)" was missed by 0:00:05.153307
+DB error executing 'update_job' (database is locked). Retrying with a new DB connection...
+Run time of job "clean_accounts (trigger: interval[0:00:30], next run at: 2022-05-13 12:26:42 UTC)" was missed by 0:00:04.008887
+Run time of job "clean_accounts (trigger: interval[0:00:30], next run at: 2022-05-13 09:51:12 UTC)" was missed by 0:00:03.875785
+DB error executing 'update_job' (database is locked). Retrying with a new DB connection...
+Run time of job "clean_accounts (trigger: interval[0:00:30], next run at: 2022-05-13 12:26:43 UTC)" was missed by 0:00:02.909755
+DB error executing 'update_job' (database is locked). Retrying with a new DB connection...
+Exception in thread APScheduler:
+Traceback (most recent call last):
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django_apscheduler/util.py", line 98, in func_wrapper
+    result = func(*args, **kwargs)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django_apscheduler/jobstores.py", line 258, in update_job
+    db_job.save()
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/models/base.py", line 970, in _save_table
+    updated = self._do_update(
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/models/base.py", line 1034, in _do_update
+    return filtered._update(values) > 0
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/models/query.py", line 885, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1783, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.9/threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/aprendeii/.local/lib/python3.9/site-packages/apscheduler/schedulers/blocking.py", line 30, in _main_loop
+    wait_seconds = self._process_jobs()
+  File "/home/aprendeii/.local/lib/python3.9/site-packages/apscheduler/schedulers/base.py", line 995, in _process_jobs
+    jobstore.update_job(job)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django_apscheduler/util.py", line 104, in func_wrapper
+    result = func(*args, **kwargs)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django_apscheduler/jobstores.py", line 258, in update_job
+    db_job.save()
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/models/base.py", line 970, in _save_table
+    updated = self._do_update(
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/models/base.py", line 1034, in _do_update
+    return filtered._update(values) > 0
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/models/query.py", line 885, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1783, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/aprendeii/estable/aprendeii/aprendeii-venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: database is locked
+System check identified some issues:
+
+WARNINGS:
+authoringtool.ConfigValues: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the AuthoringtoolConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+authoringtool.Keyword: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the AuthoringtoolConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+authoringtool.Media: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the AuthoringtoolConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+authoringtool.MetaData: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the AuthoringtoolConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+authoringtool.Playlist: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the AuthoringtoolConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+authoringtool.Postquestionnaire: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the AuthoringtoolConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+authoringtool.Prequestionnaire: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the AuthoringtoolConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+authoringtool.Question: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the AuthoringtoolConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+authoringtool.SortedMicrocontent: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the AuthoringtoolConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+studentsmanager.Keywords_State: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the StudentsmanagerConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+studentsmanager.State: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the StudentsmanagerConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+studentsmanager.Trace: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the StudentsmanagerConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+
+System check identified 12 issues (0 silenced).
+May 13, 2022 - 12:26:16
+Django version 4.0.4, using settings 'aprendeii.settings'
+Starting development server at http://193.146.210.19:8000/
+Quit the server with CONTROL-C.
+Error: That port is already in use.

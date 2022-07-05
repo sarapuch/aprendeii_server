@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'students_manager_style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/icons/home.ico' %}"/>
+</head>
+
+
+<body>
+
+{% if user.is_authenticated %}
+
+<!-- Below just teacher options-->
+    {% if user.is_staff %}
+    <div class="user_options">
+      <h1 class="top-content"><i id="home" class="fa fa-home" aria-hidden="true"></i><a id="comments" class="po comments" title="View Comments" href="{% url 'usersmanager:viewcomments'%}"><i id="comments" class="fa fa-comments" aria-hidden="true"></i></a></h1>
+      <div class="cards">
+        <div class="grid">
+          <div class="grid-item create_mc">
+            <i id="home" class="fa fa-book" aria-hidden="true"></i>
+            <h1>Create microcontent</h1>
+            <p>
+              Lorem ipsum
+            </p>
+            <a href="{% url 'authoringtool:create_selection' %}" class="btn">Create</a>
+          </div>
+          <div class="grid-item search_mc">
+            <i id="home" class="fa fa-search" aria-hidden="true"></i>
+            <h1>Search microcontent</h1>
+            <p>
+              Lorem ipsum
+            </p>
+            <a href="{% url 'authoringtool:microcontent_search' %}" class="btn">View List</a>
+          </div>
+          <div class="grid-item create_pl">
+            <i id="home" class="fa fa-th-list" aria-hidden="true"></i>
+            <h1>Create Course</h1>
+            <p>
+              Lorem ipsum
+            </p>
+            <a href="{% url 'authoringtool:playlist_creation' %}" class="btn">Create</a>
+          </div>
+          <div class="grid-item search_pl">
+            <i id="home" class="fa fa-search" aria-hidden="true"></i>
+            <h1>Search Course</h1>
+            <p>
+              Lorem ipsum
+            </p>
+            <a href="{% url 'authoringtool:playlist_search' %}" class="btn">View List</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Below just student options, create_mc and search_mc has that name to avoid css duplication-->
+    {% else %}
+    <div class="user_options">
+      <h1 class="top-content"><i id="home" class="fa fa-home" aria-hidden="true"></i></h1>
+      <div class="cards">
+        <div class="student-grid">
+          <div class="grid-item create_mc">
+            <i id="home" class="fa fa-book" aria-hidden="true"></i>
+            <h1>Enroll in a course</h1>
+            <p>
+              Lorem ipsum
+            </p>
+            <a href="{% url 'studentsmanager:courses_list' %}" class="btn">Enroll</a>
+          </div>
+          <div class="grid-item search_mc">
+            <i id="home" class="fa fa-search" aria-hidden="true"></i>
+            <h1>My courses</h1>
+            <p>
+              Lorem ipsum
+            </p>
+            <a href="{% url 'studentsmanager:my_courses' %}" class="btn">View List</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <!-- User data, change pass and log out options, common for students and teachers-->
+    <div class="user_options">
+      <div class="cards">
+        <div class="lower_grid">
+          <div class="grid-item user_data">
+            <i id="home" class="fa fa-info" aria-hidden="true"></i>
+            <h1>User Data</h1>
+            <p>
+              Lorem ipsum
+            </p>
+            {% if user.is_staff %}
+            <a href="{% url 'usersmanager:user_data' %}" class="btn">View Data</a>
+            {% else %}
+            <a href="{% url 'studentsmanager:user_data' %}" class="btn">View Data</a>
+            {% endif %}
+          </div>
+
+
+          <div class="grid-item change_password">
+            <i id="home" class="fa fa-key" aria-hidden="true"></i>
+            <h1>Change Password</h1>
+            <p>
+              Lorem ipsum
+            </p>
+            <a href="{% url 'password_reset' %}" class="btn">Change</a>
+          </div>
+
+          <div class="grid-item log_out">
+            <i id="home" class="fa fa-sign-out" aria-hidden="true"></i>
+            <h1>Log out</h1>
+            <p>
+              Lorem ipsum
+            </p>
+            <a href="{% url 'logout' %}" class="btn">Log out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">login</a>
+    {% endif %}
+
+  </body>
+</html>

@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'demo.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'sky-forms.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/icons/home.ico' %}"/>
+    <style>
+        a { font-size: 20px!important;}
+        .button {
+            font-size: 25px!important;
+            font-weight: bold!important;
+        }
+    </style>
+
+</head>
+<body class="bg-study">
+
+        <div class="body body-s">
+            <div class="sky-form">
+            <header><i><img style="max-height: 30px; max-width: 30px; margin-bottom: -4px;" src="{% static 'images/icons/home.ico'%}"></i> Home</header>
+
+                    {% if user.is_authenticated %}
+                        <fieldset>
+                            Welcome, {{ user.username }}
+                            <p><a href="{% url 'logout' %}">Log out</a></p>
+                            <p><a href="{% url 'password_reset' %}">Reset password</a></p>
+                            <p><a href="{% url 'usersmanager:user_data' %}">User data</a>
+                        </fieldset>
+            <fieldset>
+
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col span4">
+                        <p><a class="button left" href="{% url 'authoringtool:create_selection' %}">Create micro content</a></p>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="col span4">
+                        <p><a class="button left" href="{% url 'authoringtool:microcontent_search' %}">Search microcontent</a></p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            </fieldset>
+
+                {% else %}
+                  <p>You are not logged in</p>
+                  <a href="{% url 'login' %}">login</a>
+
+                {% endif %}
+                    <footer style="text-align: center;">
+                    <p>Copyright © 2021 Aprendeii Platform</p>
+                    </footer>
+
+            </div>
+    </div>
+
+</body>
+
+</html>

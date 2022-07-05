@@ -1,0 +1,290 @@
+/******************************* Xeneral é header ************************************/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
+    outline: none;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    background: #ffffff;
+    min-height: 100vh;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: #264653;
+}
+h1 a i {
+    color: #264653;
+}
+.top-content {
+    font-size: 4rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    color: #23404B;
+  }
+
+/************************** Botón crear ***************************/
+.button-create{  
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    margin-bottom: 30px;
+    width: 140px;
+    height: 40px;
+    font-size: 14px;
+    text-transform: uppercase;
+    background-color: #287271;
+    border-radius: 20px;
+    color: white;  
+    border: none;
+    transition: 0.4s ease-in-out;
+    box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+              2px 2px 6px #23404b;
+}
+
+.button-create:hover{
+    box-shadow: -1px -1px 3px #287271,
+                    2px 2px 6px #264653,
+                    inset -1px -1px 10px #287271,
+                    inset 2px 2px 10px #264653;
+}
+
+
+/********************** Level ********************************/
+.select-wrapper,
+.quest{
+    font-size: 1.5em;
+    width: 50%;
+    background: #fff;
+    padding: 30px;
+    box-sizing: border-box;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem auto;
+    position: relative;
+}
+
+.select-wrapper p{
+    color: #287271;
+}
+
+.select-wrapper select,
+.quest select{
+    background: #287271;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                2px 2px 6px #23404b;
+    -webkit-appearance: button;
+    outline: none;
+  }
+
+  .quest select{
+    font-size: 10px;
+      width: 10%;
+      height: 30px;
+      margin: 20px;
+  }
+
+  .select-wrapper select option,
+  .quest select option {
+    margin: 40px;
+    background: #264653;
+    color: #fff;
+}
+  
+  .select-wrapper span{
+    position: relative;
+    left: 0;
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 40px;
+    display: inline-block;
+    pointer-events: none;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.5);
+    transition: all 0.2s;
+  }
+
+
+
+
+
+
+/* boton añadir*/
+
+.add-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-trash,
+.po .fa-plus {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin: 0 4px;
+    color: #FFFFFF;
+    font-size: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                2px 2px 6px #23404b;
+}  
+
+#add {
+    background: #2a9d8f;
+}
+
+#add:hover {
+    color: #1A2F37;
+    box-shadow: -1px -1px 3px #287271,
+                 2px 2px 6px #264653,
+                 inset -1px -1px 10px #287271,
+                 inset 2px 2px 10px #264653;
+}
+
+#delete{
+    background: #e76f51
+}
+
+#delete:hover{
+    color: #1A2F37;
+    box-shadow: -1px -1px 3px #E45C3A,
+                 2px 2px 6px #E24D28,
+                 inset -1px -1px 10px #E45C3A,
+                 inset 2px 2px 10px #E24D28;
+}
+
+
+
+
+/* intro texto*/
+
+
+
+.wrapper{
+    font-size: 2.5em;
+    width: 50%;
+    background: #fff;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem auto;
+}
+
+.wrapper p {
+    font-size: 12px;;
+}
+
+.wrapper .input-data{
+    height: 40px;
+    width: 100%;
+    position: relative;
+
+}
+.wrapper .input-data input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 17px;
+}
+.input-data input:focus ~ label,
+.input-data input:valid ~ label{
+    transform: translateY(-20px);
+    font-size: 15px;
+    color: #3ECCBB;
+}
+
+.wrapper .input-data label{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    color: #287271;
+    pointer-events: none;
+    transition: all 0.4s ease-in-out;
+}
+.input-data .underline{
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    bottom: 0;
+    background: #287271;
+}
+.input-data .underline:before{
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: #3ECCBB;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s ease-in-out;
+}
+.input-data input:focus ~ .underline:before,
+.input-data input:valid ~ .underline:before{
+    transform: scaleX(1);
+}
+
+
+/* boton eliminar */ 
+
+.button{
+    padding: 10px;
+    display: inline;
+    border-radius: 20px;
+    font-family: "Arial";
+    border: 0;
+    margin: 0 10px;
+    background: #E24D28;
+    font-size: 15px;
+    line-height: 15px;
+    color: #f4f4f4;
+    width: auto;
+    height: auto;
+    box-sizing: content-box;
+    box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+                2px 2px 6px #23404b;
+}
+
+.button:hover{
+    cursor: pointer;
+    color: #1A2F37;
+    box-shadow: -1px -1px 3px #E45C3A,
+                 2px 2px 6px #E24D28,
+                 inset -1px -1px 10px #E45C3A,
+                 inset 2px 2px 10px #E24D28;
+}
+
+
+/********************** test *****************************/
+
+.quest p{
+    color: #1A2F37;
+}

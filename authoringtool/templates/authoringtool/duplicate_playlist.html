@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course deleted</title>
+    <link rel="icon" type="image/png" href="{% static 'images/icons/book.png' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'authoring_tool_style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body class="bottom">
+
+    <h1>Course with ID {{ id_playlist }} has been duplicated</h1>
+    <h1 class="top-content"><a id="home_button" class="po home" title="Go back to courses list" href="{% url 'authoringtool:playlist_search' %}"><i id="home" class="fa fa-reply" aria-hidden="true"></i></a></h1>
+    
+</body>

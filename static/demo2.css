@@ -1,0 +1,98 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	background-attachment: fixed;
+	background-position: 50% 50%;
+	background-size: cover;
+    color: white;
+}
+
+.bg-study {
+        background-image: url("images/background_base.png");
+    }
+
+.body {
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 40px;
+    color: white !important;
+}
+
+
+.white{
+    background-color: white;
+    text-indent: 20px;
+    margin-top: 15px;
+    font-size: 13px !important;
+}
+
+.red {
+    background-color: red !important;
+    margin-right: 500px !important;
+}
+.green {
+    background-color: green!important;
+    margin-right: 1250px !important;
+}
+
+.choice {
+    margin-left: 100px!important;
+}
+
+
+#questions-container{
+    display: flex;
+
+}
+
+#createButton{
+    margin: 0 100px 500px 0 !important;
+    font-size: 20px!important;
+}
+
+
+* { box-sizing: border-box; }
+
+.wrapper {
+  width: 1300px!important;
+  padding-right: 20px!important;
+}
+
+.searchButton {
+    margin-left: 15px!important;
+}
+
+.row {
+  clear: both!important;
+}
+
+.col {
+  float: left!important;
+  margin-left: 20px!important;
+  width: 60px;
+}
+
+/* Dos columnas de ancho (120px) y un carril (20px) */
+.col.span2 { width: 140px; }
+/* Tres columnas de ancho (180px) y dos carriles (40px) */
+.col.span3 { width: 220px; }
+/* Y asi sucesivamente ... */
+.col.span4 { width: 300px; }
+.col.span5 { width: 380px; }
+.col.span6 { width: 460px; }
+.col.span7 { width: 540px; }
+.col.span8 { width: 620px; }
+.col.span9 { width: 700px; }
+.col.span10 { width: 780px; }
+.col.span11 { width: 860px; }
+.col.span12 { width: 940px; }
+.col.span13 { width: 1120px; }
+.col.span14 { width: 1200px; }
+.col.span15 { width: 1280px; }
+.col.span16 { width: 1360px; }
+
+
+.adjust {
+    max-height: 95%;
+    max-width: 95%;
+}

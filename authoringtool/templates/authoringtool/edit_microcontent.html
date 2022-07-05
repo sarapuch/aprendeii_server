@@ -1,0 +1,403 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'create_edit_microcontent_style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/icons/book.png' %}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <title>Edit Micro Content</title>
+</head>
+
+<body class="bg-study">
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var mediaType = document.getElementById("mediaType")
+            if (mediaType){
+                showOptions();
+            }
+            
+
+            var check_post = document.getElementById("addPostQuestionnaire");
+            var check_pre = document.getElementById("addPreQuestionnaire")
+
+            if (check_post){
+                check_post.addEventListener("click", addPostQuestion, false);
+            }
+            if (check_pre){
+                check_pre.addEventListener("click", addPreQuestion, false);
+            }
+
+            var delpre = document.querySelectorAll(".delete-pre-box");
+                for (var i=0;i<delpre.length;i++) {
+                    delpre[i].addEventListener("click",deletePreQuestion, false);
+                }
+
+            var delpost = document.querySelectorAll(".delete-post-box");  
+                for (var i=0;i<delpost.length;i++) {
+                    delpost[i].addEventListener("click",deletePostQuestion, false);
+                }
+        });
+
+        function deletePostQuestion(num) {
+            var id = num.target.id;
+            id = id.toString();
+            i =  id[11];         /*Getting the number of the question*/
+            $("#postquestion"+i).replaceWith("<span> </span>");
+        }
+
+        function deletePreQuestion(num) {
+            var id = num.target.id;
+            id = id.toString();
+            i =  id[10];         /*Getting the number of the question*/
+            $("#prequestion"+i).replaceWith("<span> </span>");
+        }
+
+
+        function addPostQuestion() { //subsequent quiz
+            $("#addPostQuestionnaire-container h5").removeClass("animated bounce");
+            $("#addPostQuestionnaire-container h5").addClass("animated bounce");
+            $("#idPostQuestions").attr('value',  parseInt($("#idPostQuestions").val()) + 1);
+
+            var id = $("#idPostQuestions").val();
+     
+            $("#questions-container").append("<div class=\"quest\"  id=\"postquestion"+$("#idPostQuestions").val()+"\" style=\"order: "+$("#idPostQuestions").val()+";\">");
+
+
+
+            $("#postquestion"+id).append("<section>\n" +
+                "                                        <label><strong>Position in the Quiz: </strong>\n" +
+                "                                            <select name=\"postorder"+$("#idPostQuestions").val()+"\" id=\"postorder"+$("#idPostQuestions").val()+"\" onchange=\"applyPosition("+$("#idPostQuestions").val()+")\">\n" +
+                "                                                 <option value=1 selected>1</option>\n" +
+                "                                                 <option value=2>2</option>\n" +
+                "                                                 <option value=3>3</option>\n" +
+                "                                                 <option value=4>4</option>\n" +
+                "                                                 <option value=5>5</option>\n" +
+                "                                                 <option value=6>6</option>\n" +
+                "                                                 <option value=7>7</option>\n" +
+                "                                                 <option value=8>8</option>\n" +
+                "                                                 <option value=9>9</option>\n" +
+                "                                                 <option value=10 selected>10</option>\n" +
+                "                                            </select>\n" +
+                "                                        </label>\n" +
+                "                                    </section>");
+            $("#postquestion"+id).append("<p>Question "+$("#idPostQuestions").val()+": <textarea name=\"postquestion"+$("#idPostQuestions").val()+"\" rows=\"1\"\n" +
+                "                                                             cols=\"80\"></textarea><span id=\"deletepostq"+$("#idPostQuestions").val()+"\" class=\"button red delete-post-box\">Delete question</span></p></p>");
+            $("#postquestion"+id).append("<p><br>Choices "+$("#idPostQuestions").val()+" (write the possible answers and select the correct one):</p>\n");
+            $("#postquestion"+id).append("  {% for c in numberChoices %}\n"+
+                "                    <p>\n"+
+                "                        <input class=\"postchoice\"  type=\"radio\" name=\"postanswer"+$("#idPostQuestions").val()+"\"\n"
+                +
+                "                               value=\"postchoice"+$("#idPostQuestions").val()+"_{{ forloop.counter }}\"\n"
+                +
+                "                               {% if forloop.counter == 1 %}checked {% endif %}>\n"+
+                "                        <input type=\"text\" name=\"postchoice"+$("#idPostQuestions").val()+"_{{ forloop.counter }}\">\n"
+                +
+                "                    </p>\n"+
+                "                {% endfor %}<br>");
+
+
+            $("#postquestion"+id).append("<p>Explanation "+$("#idPostQuestions").val()+": <textarea name=\"postexplanation"+$("#idPostQuestions").val()+"\" rows=\"1\"\n" +
+                        "                                                                cols=\"100\"></textarea></p></div><br><br>");
+            document.getElementById("deletepostq"+id).addEventListener("click", deletePostQuestion, false);
+        }
+
+        function addPreQuestion() { //previous quiz
+            $("#addPreQuestionnaire-container h5").removeClass("animated bounce");
+            $("#addPreQuestionnaire-container h5").addClass("animated bounce");
+            $("#idPreviousQuestions").attr('value',  parseInt($("#idPreviousQuestions").val()) + 1);
+
+            var id = $("#idPreviousQuestions").val();
+
+            $("#previous-questions-container").append("<div class=\"quest\"  id=\"prequestion"+$("#idPreviousQuestions").val()+"\" style=\"order: "+$("#idPreviousQuestions").val()+";\">");
+
+
+
+            $("#prequestion"+id).append("<section>\n" +
+                "                                        <label><strong>Position in the Quiz: </strong>\n" +
+                "                                            <select name=\"preorder"+$("#idPreviousQuestions").val()+"\" id=\"preorder"+$("#idPreviousQuestions").val()+"\" onchange=\"applyPosition("+$("#idPreviousQuestions").val()+")\">\n" +
+                "                                                 <option value=1 selected>1</option>\n" +
+                "                                                 <option value=2>2</option>\n" +
+                "                                                 <option value=3>3</option>\n" +
+                "                                                 <option value=4>4</option>\n" +
+                "                                                 <option value=5>5</option>\n" +
+                "                                                 <option value=6>6</option>\n" +
+                "                                                 <option value=7>7</option>\n" +
+                "                                                 <option value=8>8</option>\n" +
+                "                                                 <option value=9>9</option>\n" +
+                "                                                 <option value=10 selected>10</option>\n" +
+                "                                            </select>\n" +
+                "                                        </label>\n" +
+                "                                    </section>");
+            $("#prequestion"+id).append("<p>Question "+$("#idPreviousQuestions").val()+": <textarea name=\"prequestion"+$("#idPreviousQuestions").val()+"\" rows=\"1\"\n" +
+                "                                                             cols=\"80\"></textarea><span id=\"deletepreq"+$("#idPreviousQuestions").val()+"\" class=\"button red delete-pre-box\">Delete question</span></p></p>");
+            $("#prequestion"+id).append("<br><p>Choices "+$("#idPreviousQuestions").val()+" (write the possible answers and select the correct one):</p>\n");
+            $("#prequestion"+id).append("  {% for c in numberChoices %}\n"+
+                "                    <p>\n"+
+                "                        <input class=\"prechoice\"  type=\"radio\" name=\"preanswer"+$("#idPreviousQuestions").val()+"\"\n"
+                +
+                "                               value=\"prechoice"+$("#idPreviousQuestions").val()+"_{{ forloop.counter }}\"\n"
+                +
+                "                               {% if forloop.counter == 1 %}checked {% endif %}>\n"+
+                "                        <input type=\"text\" name=\"prechoice"+$("#idPreviousQuestions").val()+"_{{ forloop.counter }}\">\n"
+                +
+                "                    </p>\n"+
+                "                {% endfor %}<br>");
+
+
+            $("#prequestion"+id).append("<p>Explanation "+$("#idPreviousQuestions").val()+": <textarea name=\"preexplanation"+$("#idPreviousQuestions").val()+"\" rows=\"1\"\n" +
+                        "                                                                cols=\"100\"></textarea></p></div><br><br>");
+            document.getElementById("deletepreq"+id).addEventListener("click", deletePreQuestion, false);
+        }
+
+
+        function showOptions(){
+            var mediaType = document.getElementById("mediaType").value;
+            var uploadForm = document.getElementById("upload_form").value;
+
+
+            if (mediaType == "video"){
+                document.getElementById("video").style.display = 'block'; //activamos seccion video
+                document.getElementById("audio").style.display = 'none'; //desactivamos seccion audio
+                document.getElementById("text").style.display = 'none';
+                document.getElementById("image").style.display = 'none';
+
+                document.getElementById("uploadForm").style.display = 'block';
+                if (uploadForm == "from_existing_file"){
+                    document.getElementById("uploadFile").style.display = 'block';
+                    document.getElementById("id_telegram").style.display = 'block';
+                    document.getElementById("fromYT").style.display = 'none';
+                } else {
+                    document.getElementById("uploadFile").style.display = 'none';
+                    document.getElementById("id_telegram").style.display = 'none';
+                    document.getElementById("fromYT").style.display = 'block';
+                }
+            }
+            if (mediaType == "audio"){
+                document.getElementById("video").style.display = 'none';
+                document.getElementById("audio").style.display = 'block';
+                document.getElementById("text").style.display = 'none';
+                document.getElementById("image").style.display = 'none';
+                document.getElementById("id_telegram").style.display = 'none';
+            }
+            if (mediaType == "text"){
+                document.getElementById("video").style.display = 'none';
+                document.getElementById("audio").style.display = 'none';
+                document.getElementById("text").style.display = 'block';
+                document.getElementById("image").style.display = 'none';
+                document.getElementById("id_telegram").style.display = 'none';
+            }
+            if (mediaType == "image"){
+                document.getElementById("video").style.display = 'none';
+                document.getElementById("audio").style.display = 'none';
+                document.getElementById("text").style.display = 'none';
+                document.getElementById("image").style.display = 'block';
+                document.getElementById("id_telegram").style.display = 'block';
+            }
+        }
+    </script>
+    <div class="body">
+        <h1>Microcontent editor</h1>
+        <h1 class="top-content"><a id="home_button" class="po home" title="Go back to microcontent list" href="{% url 'authoringtool:microcontent_search' %}"><i id="home" class="fa fa-reply" aria-hidden="true"></i></a></h1>
+        <form name="myform" action="{% url 'authoringtool:edit_microcontent' microcontent.metadata.id %}" method="post" onsubmit="doSubmit();" class="sky-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="white">
+                <div class="wrapper">
+                    <div class="input-data">
+                        <input type="text" name="title" id="title" value="{{ microcontent.name }}" required>
+                        <div class="underline"></div>
+                        <label>Microcontent Title</label>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div class="input-data">
+                        <input type="text" name="keywords" id="keywords" value="{{ microcontent.keywords }}" required>
+                        <div class="underline"></div>
+                        <label>Keywords</label>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div class="input-data">
+                        <input type="text" name="description" id="description" value="{{ microcontent.description }}">
+                        <div class="underline"></div>
+                        <label>Description</label>
+                    </div>
+                </div>
+                <div class="select-wrapper">
+                    <p>Level:
+                        <select name="level" id="level">
+                            <option value="I" {% if microcontent.level == "know" or microcontent.level == "I" %} selected {% endif %}>I</option>
+                            <option value="II" {% if microcontent.level == "do" or microcontent.level == "II" %} selected {% endif %}>II</option>
+                            <option value="III" {% if microcontent.level == "apply" or microcontent.level == "III" %} selected {% endif %}>III</option>
+                        </select>
+                    </p>
+                </div>
+
+                
+                <br><br>
+                    <div id="addPreQuestionnaire-container">
+                        <h1>Pre Questionnaire</h1><br>
+                        <div class="add-button">
+                            <a id="addPreQuestionnaire" class="po add" title="Add Question">
+                            <i id="add" class="fa fa-plus" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div id="previous-questions-container" style="display: flex; flex-direction: column;">
+                        {% for i in pre_questions %}
+                            <div class="quest"  id="prequestion{{ forloop.counter }}" style="order: {{ forloop.counter }};">
+                                <section>
+                                    <label><strong>Position in the Quiz: </strong>
+                                        <select name="preorder{{ forloop.counter }}" id="preorder{{ forloop.counter }}" onchange="applyPosition({{ forloop.counter }})">
+                                            <option {% if forloop.counter == 1 %} selected {% endif %} value=1>1</option>
+                                            <option {% if forloop.counter == 2 %} selected {% endif %} value=2>2</option>
+                                            <option {% if forloop.counter == 3 %} selected {% endif %} value=3>3</option>
+                                            <option {% if forloop.counter == 4 %} selected {% endif %} value=4>4</option>
+                                            <option {% if forloop.counter == 5 %} selected {% endif %} value=5>5</option>
+                                            <option {% if forloop.counter == 6 %} selected {% endif %} value=6>6</option>
+                                            <option {% if forloop.counter == 7 %} selected {% endif %} value=7>7</option>
+                                            <option {% if forloop.counter == 8 %} selected {% endif %} value=8>8</option>
+                                            <option {% if forloop.counter == 9 %} selected {% endif %} value=9>9</option>
+                                            <option {% if forloop.counter == 10 %} selected {% endif %} value=10>10</option>
+                                        </select>
+                                    </label>
+                                </section>
+                                <p>Question {{ forloop.counter }}: 
+                                    <textarea name="prequestion{{ forloop.counter }}" rows="1" cols="80">{{ i.question }}</textarea>
+                                    <span id="deletepreq{{ forloop.counter }}" class="button red delete-pre-box" style="text-indent: 10px;">Delete question</span>
+                                </p>
+                                <div><br>
+                                    <p>Choices {{ forloop.counter }} (write the possible answers and select the correct one):</p>
+                                    {% for c in numberChoices %}
+                                        <p>
+                                            <input type="radio" name="preanswer{{ forloop.parentloop.counter }}" value="prechoice{{ forloop.parentloop.counter }}_{{ forloop.counter }}" {% if forloop.counter == i.getcorrectoption %}checked {% endif %}>
+                                            <input type="text" name="prechoice{{ forloop.parentloop.counter }}_{{ forloop.counter }}" {% if forloop.counter == 1 %} value="{{ i.first_choice }}" {% elif forloop.counter == 2 %} value="{{ i.getcorrectoption }}" {% else %} value="{{ i.third_choice }}" {% endif %}>
+                                        </p>
+                                    {% endfor %}
+                                </div>
+                                <br>
+                                <p>Explanation {{ forloop.counter }}: 
+                                    <textarea name="preexplanation{{ forloop.counter }}" rows="1" cols="100">{{ i.explanation }}</textarea>
+                                </p>
+                                <br><br>
+                            </div>
+                        {% endfor %}
+                        <input type="hidden" id="idPreviousQuestions" name="idPreviousQuestions" value={{ pre_questions|length }}>
+                    </div>
+
+                {% if microcontent.media %}
+                <h1>Media</h1>
+                    <div class="select-wrapper">
+                        <p>Type:
+                            <select name="mediaType" id="mediaType" onchange="showOptions()" >
+                                <option value="video" {% if microcontent.media.type == "video" %} selected {% endif %}>Video</option>
+                                <option value="audio" {% if microcontent.media.type == "audio" %} selected {% endif %}>Audio</option>
+                                <option value="text" {% if microcontent.media.type == "text" %} selected {% endif %}>Text</option>
+                                <option value="image" {% if microcontent.media.type == "image" %} selected {% endif %}>Image</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div id="video">
+                        <div class="select-wrapper" id="uploadForm">
+                            <p>Upload form:
+                                <select name="upload_form" id="upload_form" onchange="showOptions()">
+                                    <option value="from_existing_file" {% if microcontent.media.upload_form == "from_existing_file" %} selected {% endif %}>From existing file</option>
+                                    <option value="link_from_youtube" {% if microcontent.media.upload_form == "link_from_youtube" %} selected {% endif %}>Link from YouTube</option>
+                                </select>
+                            </p>
+                        </div>
+                        <div id="uploadFile" class="wrapper">
+                            <section>Video file: <input name="videoFile" id="videoFile" type="file" accept="video/*" onchange="get_name_from_file({{ forloop.counter }})"/></section>
+                        </div>
+                        <div class="wrapper" id="fromYT" style="display: none;">
+                            <div class="input-data">
+                                <input type="url" name="videoURL" id="description" {% if microcontent.media.upload_form == "link_from_youtube"%} value={{ microcontent.media.url }} {% endif %}>
+                                <div class="underline"></div>
+                                <label>YouTube URL</label>
+                            </div>
+                        </div>
+                    </div>
+                    <section id="audio" class="wrapper" style="display: none;">Audio file: <input name="audioFile" id="audioFile" type="file" accept="aac, .mp4, .mp3, .pls, .m3u, m3u8, .hls" onchange="get_name_from_file({{ forloop.counter }})"/>
+                        <p>(Valid formats: AAC/MP4, MP3, PLS, M3U/M3U8 and HLS with bitrate from 16kbps to 384kbps)</p></section>
+                    <div class="wrapper" id="text" style="display: none;">
+                        <div class="input-data">
+                            <input type="text" name="text" id="text" value={{ microcontent.media.text }} required>
+                            <div class="underline"></div>
+                            <label>Text:</label>
+                        </div>
+                    </div>
+                    <section id="image" class="wrapper" style="display: none;">Image file: <input name="imageFile" id="imageFile" type="file" accept=".jpeg, .png, .jpg" onchange="get_name_from_file({{ forloop.counter }})"/></section>
+                    <input type="hidden" name="url_file" id="url_file" value="">
+                    <div id="id_telegram" class="wrapper">
+                        <div class="input-data">
+                        <input type="text" name="id_telegram" id="id_telegram">
+                        <div class="underline"></div>
+                        <label>ID de Telegram</label>
+                        </div>
+                    </div>
+                
+                {% endif %}
+
+                    <br><br>
+                    <div id="addPostQuestionnaire-container">
+                        <h1>Post Questionnaire</h1><br>
+                        <div class="add-button">
+                            <a id="addPostQuestionnaire" class="po add" title="Add Question">
+                            <i id="add" class="fa fa-plus" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div id="questions-container" style="display: flex; flex-direction: column;">
+                        {% for i in post_questions %}
+                            <div class="quest"  id="postquestion{{ forloop.counter }}" style="order: {{ forloop.counter }};">
+                                <section>
+                                    <label><strong>Position in the Quiz: </strong>
+                                        <select name="postorder{{ forloop.counter }}" id="postorder{{ forloop.counter }}" onchange="applyPosition({{ forloop.counter }})">
+                                            <option {% if forloop.counter == 1 %} selected {% endif %} value=1>1</option>
+                                            <option {% if forloop.counter == 2 %} selected {% endif %} value=2>2</option>
+                                            <option {% if forloop.counter == 3 %} selected {% endif %} value=3>3</option>
+                                            <option {% if forloop.counter == 4 %} selected {% endif %} value=4>4</option>
+                                            <option {% if forloop.counter == 5 %} selected {% endif %} value=5>5</option>
+                                            <option {% if forloop.counter == 6 %} selected {% endif %} value=6>6</option>
+                                            <option {% if forloop.counter == 7 %} selected {% endif %} value=7>7</option>
+                                            <option {% if forloop.counter == 8 %} selected {% endif %} value=8>8</option>
+                                            <option {% if forloop.counter == 9 %} selected {% endif %} value=9>9</option>
+                                            <option {% if forloop.counter == 10 %} selected {% endif %} value=10>10</option>
+                                        </select>
+                                    </label>
+                                </section>
+                                <p>Question {{ forloop.counter }}: 
+                                    <textarea name="postquestion{{ forloop.counter }}" rows="1" cols="80">{{ i.question }}</textarea>
+                                    <span id="deletepostq{{ forloop.counter }}" class="button red delete-post-box" style="text-indent: 10px;">Delete question</span>
+                                </p>
+                                <div style="margin-left: 100px;">
+                                    <p>Choices {{ forloop.counter }} (write the possible answers and select the correct one):</p>
+                                    {% for c in numberChoices %}
+                                        <p>
+                                            <input type="radio" name="postanswer{{ forloop.parentloop.counter }}" value="postchoice{{ forloop.parentloop.counter }}_{{ forloop.counter }}" {% if forloop.counter == i.getcorrectoption %}checked {% endif %}>
+                                            <input type="text" name="postchoice{{ forloop.parentloop.counter }}_{{ forloop.counter }}" {% if forloop.counter == 1 %} value="{{ i.first_choice }}" {% elif forloop.counter == 2 %} value="{{ i.second_choice }}" {% else %} value="{{ i.third_choice }}" {% endif %}>
+                                        </p>
+                                    {% endfor %}
+                                </div>
+                                <br>
+                                <p>Explanation {{ forloop.counter }}: 
+                                    <textarea name="postexplanation{{ forloop.counter }}" rows="1" cols="100">{{ i.explanation }}</textarea>
+                                </p>
+                                <br><br>
+                            </div>
+                        {% endfor %}
+                        <input type="hidden" id="idPostQuestions" name="idPostQuestions" value={{ post_questions|length }}>
+                    </div>
+
+                <input type="hidden" id="author" name="author" value={{ user.username }}>
+                <input type="hidden" id="creation_type" name="creation_type" value="own creation">
+                <input class="button-create" type="submit" value="Save">
+            </div>
+        </form>
+    </div>
+</body>

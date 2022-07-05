@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<style>
+</style>
+<html>
+	<head>
+		<title>Edit user info</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'demo.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'sky-forms.css' %}">
+        <link rel="icon" type="image/png" href="{% static 'images/icons/book.png' %}"/>
+	</head>
+	<body class="bg-study">
+
+		<div class="body body-s">
+			<form  action="{% url 'studentsmanager:edit_user_data' user.id %}" method="post" class="sky-form">
+                {% csrf_token %}
+				<header>Edit user data</header>
+				<fieldset>
+                    {{ form.errors }}
+					<section>
+						<label class="input">Username:
+                            <input name="userName" type="text" value="{{ user.username }}">  {% comment %} It takes user values from the current authenticated user {% endcomment %}
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
+					</section>
+
+					<section>
+						<label class="input">First name:
+                            <input name="firstName" type="text" value="{{ user.first_name }}"><b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
+						</label>
+					</section>
+
+					<section>
+						<label class="input" >Last name:
+                            <input name="lastName" type="text" value="{{ user.last_name }}">
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
+					</section>
+					<section>
+						<label class="input">Telegram ID
+                              <input name="telegram_id" type="text" value="{{ students.telegram_id }}">
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
+					</section>
+					<section>
+						<label class="input">Email
+                              <input name="email" type="text" value="{{ user.email }}">
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
+					</section>
+
+					
+				</fieldset>
+
+                <footer>
+					<button type="submit" class="button" style="background-color: green">Save changes</button>
+                    <a id="id_back_button" class="button" onclick="window.history.back();" >Back</a>
+				</footer>
+			</form>
+
+		</div>
+
+
+	</body>
+</html>

@@ -1,0 +1,263 @@
+*{
+    outline: none;
+}
+
+body{
+    font-family: Helvetica;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #264653;
+}
+h1 a i {
+    color: #264653;
+}
+
+h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #264653;
+}
+
+.top-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #23404B;
+}
+
+
+/************************************ try microcontent *******************************************/
+.media_box{
+    width: 740px;
+    height: 480px;
+    margin: 2rem auto;
+    padding: 10px;
+    display: flex;
+    background: #086972;
+    color: #f4f4f4;
+    font-size: 20px;
+    font-weight: 300;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.4);
+}
+
+.radio-wrapper{
+    width: 900px;
+    margin: 2rem auto;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.4);
+
+  }
+  
+  .radio-wrapper .title{
+    color: #ffffff;
+    line-height: 65px;
+    text-align: center;
+    background: #086972;
+    font-size: 25px;
+    font-weight: 500;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .radio-wrapper .radio-box{
+    padding: 20px 30px;
+    background: #ffffff;
+    border-radius: 10px;
+  }
+  
+  .radio-wrapper .radio-box label{
+    display: flex;
+    height: 53px;
+    width: 100%;
+    align-items: center;
+    border: 1px solid lightgrey;
+    border-radius: 50px;
+    margin: 10px 0;
+    padding-left: 20px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+  
+#pre_option_1_1:checked ~ .option-1, #pre_option_1_2:checked ~ .option-2, #pre_option_1_3:checked ~ .option-3,
+#pre_option_2_1:checked ~ .option-1, #pre_option_2_2:checked ~ .option-2, #pre_option_2_3:checked ~ .option-3,
+#pre_option_3_1:checked ~ .option-1, #pre_option_3_2:checked ~ .option-2, #pre_option_3_3:checked ~ .option-3,
+#pre_option_4_1:checked ~ .option-1, #pre_option_4_2:checked ~ .option-2, #pre_option_4_3:checked ~ .option-3,
+#pre_option_5_1:checked ~ .option-1, #pre_option_5_2:checked ~ .option-2, #pre_option_5_3:checked ~ .option-3,
+#pre_option_6_1:checked ~ .option-1, #pre_option_6_2:checked ~ .option-2, #pre_option_6_3:checked ~ .option-3,
+#pre_option_7_1:checked ~ .option-1, #pre_option_7_2:checked ~ .option-2, #pre_option_7_3:checked ~ .option-3,
+#pre_option_8_1:checked ~ .option-1, #pre_option_8_2:checked ~ .option-2, #pre_option_8_3:checked ~ .option-3,
+#pre_option_9_1:checked ~ .option-1, #pre_option_9_2:checked ~ .option-2, #pre_option_9_3:checked ~ .option-3,
+#pre_option_10_1:checked ~ .option-1, #pre_option_10_2:checked ~ .option-2, #pre_option_10_3:checked ~ .option-3,
+#post_option_1_1:checked ~ .option-1, #post_option_1_2:checked ~ .option-2, #post_option_1_3:checked ~ .option-3,
+#post_option_2_1:checked ~ .option-1, #post_option_2_2:checked ~ .option-2, #post_option_2_3:checked ~ .option-3,
+#post_option_3_1:checked ~ .option-1, #post_option_3_2:checked ~ .option-2, #post_option_3_3:checked ~ .option-3,
+#post_option_4_1:checked ~ .option-1, #post_option_4_2:checked ~ .option-2, #post_option_4_3:checked ~ .option-3,
+#post_option_5_1:checked ~ .option-1, #post_option_5_2:checked ~ .option-2, #post_option_5_3:checked ~ .option-3,
+#post_option_6_1:checked ~ .option-1, #post_option_6_2:checked ~ .option-2, #post_option_6_3:checked ~ .option-3,
+#post_option_7_1:checked ~ .option-1, #post_option_7_2:checked ~ .option-2, #post_option_7_3:checked ~ .option-3,
+#post_option_8_1:checked ~ .option-1, #post_option_8_2:checked ~ .option-2, #post_option_8_3:checked ~ .option-3,
+#post_option_9_1:checked ~ .option-1, #post_option_9_2:checked ~ .option-2, #post_option_9_3:checked ~ .option-3,
+#post_option_10_1:checked ~ .option-1, #post_option_10_2:checked ~ .option-2, #post_option_10_3:checked ~ .option-3{
+    background: #086972;
+}
+  
+#pre_option_1_1:hover ~ .option-1, #pre_option_1_2:hover ~ .option-2, #pre_option_1_3:hover ~ .option-3,
+#pre_option_2_1:hover ~ .option-1, #pre_option_2_2:hover ~ .option-2, #pre_option_2_3:hover ~ .option-3,
+#pre_option_3_1:hover ~ .option-1, #pre_option_3_2:hover ~ .option-2, #pre_option_3_3:hover ~ .option-3,
+#pre_option_4_1:hover ~ .option-1, #pre_option_4_2:hover ~ .option-2, #pre_option_4_3:hover ~ .option-3,
+#pre_option_5_1:hover ~ .option-1, #pre_option_5_2:hover ~ .option-2, #pre_option_5_3:hover ~ .option-3,
+#pre_option_6_1:hover ~ .option-1, #pre_option_6_2:hover ~ .option-2, #pre_option_6_3:hover ~ .option-3,
+#pre_option_7_1:hover ~ .option-1, #pre_option_7_2:hover ~ .option-2, #pre_option_7_3:hover ~ .option-3,
+#pre_option_8_1:hover ~ .option-1, #pre_option_8_2:hover ~ .option-2, #pre_option_8_3:hover ~ .option-3,
+#pre_option_9_1:hover ~ .option-1, #pre_option_9_2:hover ~ .option-2, #pre_option_9_3:hover ~ .option-3,
+#pre_option_10_1:hover ~ .option-1, #pre_option_10_2:hover ~ .option-2, #pre_option_10_3:hover ~ .option-3,
+#post_option_1_1:hover ~ .option-1, #post_option_1_2:hover ~ .option-2, #post_option_1_3:hover ~ .option-3,
+#post_option_2_1:hover ~ .option-1, #post_option_2_2:hover ~ .option-2, #post_option_2_3:hover ~ .option-3,
+#post_option_3_1:hover ~ .option-1, #post_option_3_2:hover ~ .option-2, #post_option_3_3:hover ~ .option-3,
+#post_option_4_1:hover ~ .option-1, #post_option_4_2:hover ~ .option-2, #post_option_4_3:hover ~ .option-3,
+#post_option_5_1:hover ~ .option-1, #post_option_5_2:hover ~ .option-2, #post_option_5_3:hover ~ .option-3,
+#post_option_6_1:hover ~ .option-1, #post_option_6_2:hover ~ .option-2, #post_option_6_3:hover ~ .option-3,
+#post_option_7_1:hover ~ .option-1, #post_option_7_2:hover ~ .option-2, #post_option_7_3:hover ~ .option-3,
+#post_option_8_1:hover ~ .option-1, #post_option_8_2:hover ~ .option-2, #post_option_8_3:hover ~ .option-3,
+#post_option_9_1:hover ~ .option-1, #post_option_9_2:hover ~ .option-2, #post_option_9_3:hover ~ .option-3,
+#post_option_10_1:hover ~ .option-1, #post_option_10_2:hover ~ .option-2, #post_option_10_3:hover ~ .option-3{
+    background: #4ED0C1;
+  }
+  
+  .radio-wrapper .radio-box label .dot{
+    height: 20px;
+    width: 20px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.4s ease;
+  }
+  
+#pre_option_1_1:checked ~ .option-1 .dot, #pre_option_1_2:checked ~ .option-2 .dot, #pre_option_1_3:checked ~ .option-3 .dot,
+#pre_option_2_1:checked ~ .option-1 .dot, #pre_option_2_2:checked ~ .option-2 .dot, #pre_option_2_3:checked ~ .option-3 .dot,
+#pre_option_3_1:checked ~ .option-1 .dot, #pre_option_3_2:checked ~ .option-2 .dot, #pre_option_3_3:checked ~ .option-3 .dot,
+#pre_option_4_1:checked ~ .option-1 .dot, #pre_option_4_2:checked ~ .option-2 .dot, #pre_option_4_3:checked ~ .option-3 .dot,
+#pre_option_5_1:checked ~ .option-1 .dot, #pre_option_5_2:checked ~ .option-2 .dot, #pre_option_5_3:checked ~ .option-3 .dot,
+#pre_option_6_1:checked ~ .option-1 .dot, #pre_option_6_2:checked ~ .option-2 .dot, #pre_option_6_3:checked ~ .option-3 .dot,
+#pre_option_7_1:checked ~ .option-1 .dot, #pre_option_7_2:checked ~ .option-2 .dot, #pre_option_7_3:checked ~ .option-3 .dot,
+#pre_option_8_1:checked ~ .option-1 .dot, #pre_option_8_2:checked ~ .option-2 .dot, #pre_option_8_3:checked ~ .option-3 .dot,
+#pre_option_9_1:checked ~ .option-1 .dot, #pre_option_9_2:checked ~ .option-2 .dot, #pre_option_9_3:checked ~ .option-3 .dot,
+#pre_option_10_1:checked ~ .option-1 .dot, #pre_option_10_2:checked ~ .option-2 .dot, #pre_option_10_3:checked ~ .option-3 .dot,
+#post_option_1_1:checked ~ .option-1 .dot, #post_option_1_2:checked ~ .option-2 .dot, #post_option_1_3:checked ~ .option-3 .dot,
+#post_option_2_1:checked ~ .option-1 .dot, #post_option_2_2:checked ~ .option-2 .dot, #post_option_2_3:checked ~ .option-3 .dot,
+#post_option_3_1:checked ~ .option-1 .dot, #post_option_3_2:checked ~ .option-2 .dot, #post_option_3_3:checked ~ .option-3 .dot,
+#post_option_4_1:checked ~ .option-1 .dot, #post_option_4_2:checked ~ .option-2 .dot, #post_option_4_3:checked ~ .option-3 .dot,
+#post_option_5_1:checked ~ .option-1 .dot, #post_option_5_2:checked ~ .option-2 .dot, #post_option_5_3:checked ~ .option-3 .dot,
+#post_option_6_1:checked ~ .option-1 .dot, #post_option_6_2:checked ~ .option-2 .dot, #post_option_6_3:checked ~ .option-3 .dot,
+#post_option_7_1:checked ~ .option-1 .dot, #post_option_7_2:checked ~ .option-2 .dot, #post_option_7_3:checked ~ .option-3 .dot,
+#post_option_8_1:checked ~ .option-1 .dot, #post_option_8_2:checked ~ .option-2 .dot, #post_option_8_3:checked ~ .option-3 .dot,
+#post_option_9_1:checked ~ .option-1 .dot, #post_option_9_2:checked ~ .option-2 .dot, #post_option_9_3:checked ~ .option-3 .dot,
+#post_option_10_1:checked ~ .option-1 .dot, #post_option_10_2:checked ~ .option-2 .dot, #post_option_10_3:checked ~ .option-3 .dot{
+    background: #ffffff;
+  }
+  
+  .radio-box label .dot::before{
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transition: translate(-50%, -50%) scale(2);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+  }
+  
+#pre_option_1_1:checked ~ .option-1 .dot::before, #pre_option_1_2:checked ~ .option-2 .dot::before, #pre_option_1_3:checked ~ .option-3 .dot::before,
+#pre_option_2_1:checked ~ .option-1 .dot::before, #pre_option_2_2:checked ~ .option-2 .dot::before, #pre_option_2_3:checked ~ .option-3 .dot::before,
+#pre_option_3_1:checked ~ .option-1 .dot::before, #pre_option_3_2:checked ~ .option-2 .dot::before, #pre_option_3_3:checked ~ .option-3 .dot::before,
+#pre_option_4_1:checked ~ .option-1 .dot::before, #pre_option_4_2:checked ~ .option-2 .dot::before, #pre_option_4_3:checked ~ .option-3 .dot::before,
+#pre_option_5_1:checked ~ .option-1 .dot::before, #pre_option_5_2:checked ~ .option-2 .dot::before, #pre_option_5_3:checked ~ .option-3 .dot::before,
+#pre_option_6_1:checked ~ .option-1 .dot::before, #pre_option_6_2:checked ~ .option-2 .dot::before, #pre_option_6_3:checked ~ .option-3 .dot::before,
+#pre_option_7_1:checked ~ .option-1 .dot::before, #pre_option_7_2:checked ~ .option-2 .dot::before, #pre_option_7_3:checked ~ .option-3 .dot::before,
+#pre_option_8_1:checked ~ .option-1 .dot::before, #pre_option_8_2:checked ~ .option-2 .dot::before, #pre_option_8_3:checked ~ .option-3 .dot::before,
+#pre_option_9_1:checked ~ .option-1 .dot::before, #pre_option_9_2:checked ~ .option-2 .dot::before, #pre_option_9_3:checked ~ .option-3 .dot::before,
+#pre_option_10_1:checked ~ .option-1 .dot::before, #pre_option_10_2:checked ~ .option-2 .dot::before, #pre_option_10_3:checked ~ .option-3 .dot::before,
+#post_option_1_1:checked ~ .option-1 .dot::before, #post_option_1_2:checked ~ .option-2 .dot::before, #post_option_1_3:checked ~ .option-3 .dot::before,
+#post_option_2_1:checked ~ .option-1 .dot::before, #post_option_2_2:checked ~ .option-2 .dot::before, #post_option_2_3:checked ~ .option-3 .dot::before,
+#post_option_3_1:checked ~ .option-1 .dot::before, #post_option_3_2:checked ~ .option-2 .dot::before, #post_option_3_3:checked ~ .option-3 .dot::before,
+#post_option_4_1:checked ~ .option-1 .dot::before, #post_option_4_2:checked ~ .option-2 .dot::before, #post_option_4_3:checked ~ .option-3 .dot::before,
+#post_option_5_1:checked ~ .option-1 .dot::before, #post_option_5_2:checked ~ .option-2 .dot::before, #post_option_5_3:checked ~ .option-3 .dot::before,
+#post_option_6_1:checked ~ .option-1 .dot::before, #post_option_6_2:checked ~ .option-2 .dot::before, #post_option_6_3:checked ~ .option-3 .dot::before,
+#post_option_7_1:checked ~ .option-1 .dot::before, #post_option_7_2:checked ~ .option-2 .dot::before, #post_option_7_3:checked ~ .option-3 .dot::before,
+#post_option_8_1:checked ~ .option-1 .dot::before, #post_option_8_2:checked ~ .option-2 .dot::before, #post_option_8_3:checked ~ .option-3 .dot::before,
+#post_option_9_1:checked ~ .option-1 .dot::before, #post_option_9_2:checked ~ .option-2 .dot::before, #post_option_9_3:checked ~ .option-3 .dot::before,
+#post_option_10_1:checked ~ .option-1 .dot::before, #post_option_10_2:checked ~ .option-2 .dot::before, #post_option_10_3:checked ~ .option-3 .dot::before{
+    background: #4ED0C1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .radio-wrapper .radio-box label .text{
+    color: #333;
+    font-size: 18px;
+    font-weight: 400;
+    padding-left: 10px;
+    transition: color 0.4s ease;
+  }
+  
+#pre_option_1_1:checked ~ .option-1 .text, #pre_option_1_2:checked ~ .option-2 .text, #pre_option_1_3:checked ~ .option-3 .text,
+#pre_option_2_1:checked ~ .option-1 .text, #pre_option_2_2:checked ~ .option-2 .text, #pre_option_2_3:checked ~ .option-3 .text,
+#pre_option_3_1:checked ~ .option-1 .text, #pre_option_3_2:checked ~ .option-2 .text, #pre_option_3_3:checked ~ .option-3 .text,
+#pre_option_4_1:checked ~ .option-1 .text, #pre_option_4_2:checked ~ .option-2 .text, #pre_option_4_3:checked ~ .option-3 .text,
+#pre_option_5_1:checked ~ .option-1 .text, #pre_option_5_2:checked ~ .option-2 .text, #pre_option_5_3:checked ~ .option-3 .text,
+#pre_option_6_1:checked ~ .option-1 .text, #pre_option_6_2:checked ~ .option-2 .text, #pre_option_6_3:checked ~ .option-3 .text,
+#pre_option_7_1:checked ~ .option-1 .text, #pre_option_7_2:checked ~ .option-2 .text, #pre_option_7_3:checked ~ .option-3 .text,
+#pre_option_8_1:checked ~ .option-1 .text, #pre_option_8_2:checked ~ .option-2 .text, #pre_option_8_3:checked ~ .option-3 .text,
+#pre_option_9_1:checked ~ .option-1 .text, #pre_option_9_2:checked ~ .option-2 .text, #pre_option_9_3:checked ~ .option-3 .text,
+#pre_option_10_1:checked ~ .option-1 .text, #pre_option_10_2:checked ~ .option-2 .text, #pre_option_10_3:checked ~ .option-3 .text,
+#post_option_1_1:checked ~ .option-1 .text, #post_option_1_2:checked ~ .option-2 .text, #post_option_1_3:checked ~ .option-3 .text,
+#post_option_2_1:checked ~ .option-1 .text, #post_option_2_2:checked ~ .option-2 .text, #post_option_2_3:checked ~ .option-3 .text,
+#post_option_3_1:checked ~ .option-1 .text, #post_option_3_2:checked ~ .option-2 .text, #post_option_3_3:checked ~ .option-3 .text,
+#post_option_4_1:checked ~ .option-1 .text, #post_option_4_2:checked ~ .option-2 .text, #post_option_4_3:checked ~ .option-3 .text,
+#post_option_5_1:checked ~ .option-1 .text, #post_option_5_2:checked ~ .option-2 .text, #post_option_5_3:checked ~ .option-3 .text,
+#post_option_6_1:checked ~ .option-1 .text, #post_option_6_2:checked ~ .option-2 .text, #post_option_6_3:checked ~ .option-3 .text,
+#post_option_7_1:checked ~ .option-1 .text, #post_option_7_2:checked ~ .option-2 .text, #post_option_7_3:checked ~ .option-3 .text,
+#post_option_8_1:checked ~ .option-1 .text, #post_option_8_2:checked ~ .option-2 .text, #post_option_8_3:checked ~ .option-3 .text,
+#post_option_9_1:checked ~ .option-1 .text, #post_option_9_2:checked ~ .option-2 .text, #post_option_9_3:checked ~ .option-3 .text,
+#post_option_10_1:checked ~ .option-1 .text, #post_option_10_2:checked ~ .option-2 .text, #post_option_10_3:checked ~ .option-3 .text{
+    color: #fff;
+  }
+  
+  .radio-wrapper .radio-box input[type="radio"]{
+    display: none;
+  }
+
+  .button{  
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    margin-bottom: 30px;
+    width: 140px;
+    height: 40px;
+    font-size: 14px;
+    text-transform: uppercase;
+    background-color: #287271;
+    border-radius: 20px;
+    color: white;  
+    border: none;
+    transition: 0.4s ease-in-out;
+    box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+              2px 2px 6px #23404b;
+}
+
+.button:hover{
+    box-shadow: -1px -1px 3px #287271,
+                    2px 2px 6px #264653,
+                    inset -1px -1px 10px #287271,
+                    inset 2px 2px 10px #264653;
+}

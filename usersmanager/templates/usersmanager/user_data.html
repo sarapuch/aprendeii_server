@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<style>
+</style>
+<html>
+	<head>
+		<title>User data</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'demo.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'sky-forms.css' %}">
+        	<link rel="icon" type="image/png" href="{% static 'images/icons/book.png' %}"/>
+
+	</head>
+	<body class="bg-study">
+		<div class="body body-s">
+
+			<form method="post" class="sky-form">
+                {% csrf_token %}
+				<header>User data<a id="id_back_button" class="authoringtool:menu' %}">Home</a></header>
+				<fieldset>
+                    {{ form.errors }}
+					<section>
+                           - Username: {{ user.username }}
+					</section>
+
+					<section>
+						- First name: {{ user.first_name }}
+					</section>
+
+					<section>
+						- Last name: {{ user.last_name }}
+					</section>
+
+					<section>
+						- Email: {{ user.email }}
+					</section>
+
+					<section>
+						-Telegram ID: {{ students.telegram_id }}
+					</section>
+				</fieldset>
+
+
+				<footer>
+                    <a class="button" href="{% url 'studentsmanager:edit_user_data' user.id %}" style="background-color: green;">Edit data</a>
+                    <a class="button" href="{% url 'studentsmanager:password_change' %}" style="background-color: green;">Password change</a>
+                </footer>
+			</form>
+
+		</div>
+
+
+	</body>
+</html>
